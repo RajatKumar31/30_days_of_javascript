@@ -19,10 +19,10 @@ console.log(argumentsLength(1, 2, 3)); // 3
  * @return {Function}
  */
 var once = function(fn) {
-	let count = 0;
+	let called = false;
 	return function(...args) {
-		if (count === 0) {
-			count++;
+		if (!called) {
+			called = true;
 			return fn(...args);
 		}
 	}
